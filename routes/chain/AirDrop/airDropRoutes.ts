@@ -7,8 +7,8 @@ import {
 
 const router = express.Router();
 
-router.post("/airDropInfo/Arbitrum", saveDataArbitrum);
-router.get("/airDrop-fetch-data/Arbitrum", fetchDataAllArbitrum);
-router.get("/airDrop-fetch-data/Arbitrum/:id", fetchDataByIdArbitrum);
+router.post("/airDropInfo/:chain", saveDataArbitrum);
+router.get("/airDrop-fetch-data/:chain", fetchDataAllArbitrum);
+router.get("/airDrop-fetch-data/:chain/:id", fetchDataByIdArbitrum);
 
 export default router;

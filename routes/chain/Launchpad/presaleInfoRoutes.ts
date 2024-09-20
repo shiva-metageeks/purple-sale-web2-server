@@ -7,8 +7,8 @@ import {
 
 const router = express.Router();
 
-router.post("/presaleInfo/Arbitrum", saveDataArbitrum);
-router.get("/presale-fetch-data/Arbitrum", fetchDataAllArbitrum);
-router.get("/presale-fetch-data/Arbitrum/:id", fetchDataByIdArbitrum);
+router.post("/presaleInfo/:chain", saveDataArbitrum);
+router.get("/presale-fetch-data/:chain", fetchDataAllArbitrum);
+router.get("/presale-fetch-data/:chain/:id", fetchDataByIdArbitrum);
 
 export default router;

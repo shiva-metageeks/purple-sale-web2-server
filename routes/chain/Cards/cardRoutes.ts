@@ -8,13 +8,13 @@ import {
 
 const router = express.Router();
 
-router.post("/cart/Arbitrum", addToCartArbitrum);
+router.post("/cart/:chain", addToCartArbitrum);
 
 // Fetch all items in the cart
-router.get("/getCart/Arbitrum", getCartItemsArbitrum);
+router.get("/getCart/:chain", getCartItemsArbitrum);
 
-router.get("/getCart/Arbitrum/:walletAddress", getCartItemsByWalletArbitrum);
+router.get("/getCart/:chain/:walletAddress", getCartItemsByWalletArbitrum);
 
-router.delete("/deleteCart/Arbitrum/:itemId", deleteCartItemArbitrum);
+router.delete("/deleteCart/:chain/:itemId", deleteCartItemArbitrum);
 
 export default router;

@@ -6,13 +6,7 @@ import {
 
 const router = express.Router();
 
-router.post(
-  "/save-data-pinklock-web3/Arbitrum",
-  savePinkLockWeb3Web3DataArbitrum
-);
-router.get(
-  "/fetch-data-pinklock-web3/Arbitrum",
-  fetchPinkLockWeb3Web3DataAllArbitrum
-);
+router.post("/save-data-pinklock-web3/:chain", savePinkLockWeb3Web3DataArbitrum);
+router.get("/fetch-data-pinklock-web3/:chain", fetchPinkLockWeb3Web3DataAllArbitrum);
 
 export default router;

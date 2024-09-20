@@ -7,8 +7,8 @@ import {
 
 const router = express.Router();
 
-router.post("/SubscriptionInfo/Arbitrum", saveDataArbitrum);
-router.get("/Subscription-fetch-data/Arbitrum", fetchDataAllArbitrum);
-router.get("/Subscription-fetch-data/Arbitrum/:id", fetchDataByIdArbitrum);
+router.post("/SubscriptionInfo/:chain", saveDataArbitrum);
+router.get("/Subscription-fetch-data/:chain", fetchDataAllArbitrum);
+router.get("/Subscription-fetch-data/:chain/:id", fetchDataByIdArbitrum);
 
 export default router;

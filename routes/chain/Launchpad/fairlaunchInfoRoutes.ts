@@ -7,8 +7,8 @@ import {
 
 const router = express.Router();
 
-router.post("/fairLaunchInfo/Arbitrum", saveDataArbitrum);
-router.get("/fairLaunch-fetch-data/Arbitrum", fetchDataAllArbitrum);
-router.get("/fairLaunch-fetch-data/Arbitrum/:id", fetchDataByIdArbitrum);
+router.post("/fairLaunchInfo/:chain", saveDataArbitrum);
+router.get("/fairLaunch-fetch-data/:chain", fetchDataAllArbitrum);
+router.get("/fairLaunch-fetch-data/:chain/:id", fetchDataByIdArbitrum);
 
 export default router;
