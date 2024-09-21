@@ -6,6 +6,7 @@ const cardSchemaArbitrum = new Schema({
     WalletAddress: String,
     imgHref: String,
     bgLogoUrl: String,
+    chain: String,
 });
 const CartArbitrum = model("CartArbitrum", cardSchemaArbitrum);
 export default CartArbitrum;

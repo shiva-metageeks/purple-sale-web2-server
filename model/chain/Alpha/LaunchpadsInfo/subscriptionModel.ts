@@ -14,6 +14,7 @@ const presaleDataSchemaArbitrum: Schema = new Schema<ISubscriptionData>({
   reddit: String,
   youtube: String,
   description: String,
+  chain: String,
 });
 
 const SubscriptionDataArbitrum: Model<ISubscriptionData> =

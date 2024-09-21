@@ -15,6 +15,7 @@ const privateSaleDataSchemaArbitrum: Schema = new Schema<IPrivateSaleData>({
   reddit: String,
   youtube: String,
   description: String,
+  chain: String,
 });
 
 const PrivateSaleDataArbitrum: Model<IPrivateSaleData> =

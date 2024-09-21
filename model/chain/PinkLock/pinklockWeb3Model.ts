@@ -3,6 +3,7 @@ import { IPinkLockWeb3 } from "../../../types/PinkLock/pinkLockDataWeb3.js";
 
 const pinkLockWeb3SchemaArbitrum: Schema = new Schema<IPinkLockWeb3>({
   title: String,
+  chain: String,
 });
 
 const PinkLockWeb3Arbitrum: Model<IPinkLockWeb3> = model<IPinkLockWeb3>(

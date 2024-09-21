@@ -5,6 +5,7 @@ import ErrorHandler from "../../../utils/errorHandler.js";
 
 export const saveDataArbitrum = catchAsyncError(
   async (req: Request, res: Response, next: NextFunction) => {
+    const chain = req.params.chain;
     try {
       const {
         id,
@@ -23,6 +24,7 @@ export const saveDataArbitrum = catchAsyncError(
 
       const newData = new PresaleData({
         id,
+        chain,
         logoUrl,
         bgLogoUrl,
         websiteUrl,
@@ -48,7 +50,8 @@ export const saveDataArbitrum = catchAsyncError(
 export const fetchDataAllArbitrum = catchAsyncError(
   async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const allData = await PresaleData.find();
+      const chain = req.params.chain;
+      const allData = await PresaleData.find({ chain });
       res.status(200).json(allData);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -61,7 +64,8 @@ export const fetchDataByIdArbitrum = catchAsyncError(
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const idParam = req.params.id;
-      const data = await PresaleData.findOne({ id: idParam });
+      const chain = req.params.chain;
+      const data = await PresaleData.findOne({ id: idParam, chain });
       if (!data) {
         return res.status(404).json({ message: "Data not found" });
       }

@@ -5,6 +5,7 @@ import ErrorHandler from "../../../../utils/errorHandler.js";
 
 export const saveDataArbitrum = catchAsyncError(
   async (req: Request, res: Response, next: NextFunction) => {
+    const chain = req.params.chain;
     try {
       const {
         id,
@@ -23,6 +24,7 @@ export const saveDataArbitrum = catchAsyncError(
 
       const newData = new FairLaunchData({
         id,
+        chain,
         logoUrl,
         bgLogoUrl,
         websiteUrl,
@@ -47,6 +49,7 @@ export const saveDataArbitrum = catchAsyncError(
 
 export const fetchDataAllArbitrum = catchAsyncError(
   async (req: Request, res: Response, next: NextFunction) => {
+    const chain = req.params.chain;
     try {
       const allData = await FairLaunchData.find();
       res.status(200).json(allData);
@@ -60,6 +63,7 @@ export const fetchDataAllArbitrum = catchAsyncError(
 export const fetchDataByIdArbitrum = catchAsyncError(
   async (req: Request, res: Response, next: NextFunction) => {
     try {
+      const chain = req.params.chain;
       const idParam = req.params.id;
       const data = await FairLaunchData.findOne({ id: idParam });
       if (!data) {

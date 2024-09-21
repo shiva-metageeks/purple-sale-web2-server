@@ -5,6 +5,7 @@ import ErrorHandler from "../../../utils/errorHandler.js";
 
 export const addToCartArbitrum = catchAsyncError(
   async (req: Request, res: Response, next: NextFunction) => {
+    const chain = req.params.chain;
     try {
       const { Name, Symbol, Link, WalletAddress, imgHref, bgLogoUrl } =
         req.body;
@@ -16,6 +17,7 @@ export const addToCartArbitrum = catchAsyncError(
         WalletAddress,
         imgHref,
         bgLogoUrl,
+        chain,
       });
 
       await newCartItem.save();
@@ -30,7 +32,8 @@ export const addToCartArbitrum = catchAsyncError(
 export const getCartItemsArbitrum = catchAsyncError(
   async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const cartItems = await Cart.find();
+      const chain = req.params.chain;
+      const cartItems = await Cart.find({ chain });
       res.status(200).json(cartItems);
     } catch (error) {
       console.error("Error fetching cart items:", error);
@@ -43,7 +46,11 @@ export const getCartItemsByWalletArbitrum = catchAsyncError(
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { walletAddress } = req.params;
-      const cartItems = await Cart.find({ WalletAddress: walletAddress });
+      const chain = req.params.chain;
+      const cartItems = await Cart.find({
+        WalletAddress: walletAddress,
+        chain,
+      });
       res.status(200).json(cartItems);
     } catch (error) {
       console.error("Error fetching cart items by wallet:", error);
@@ -56,6 +63,7 @@ export const deleteCartItemArbitrum = catchAsyncError(
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { itemId } = req.params;
+      const chain = req.params.chain;
 
       console.log("Received itemId:", itemId); // Add this line for debugging
 

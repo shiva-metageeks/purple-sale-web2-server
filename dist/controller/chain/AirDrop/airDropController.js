@@ -2,6 +2,8 @@ import AirDropData from "../../../model/chain/AirDrop/airDropModel.js";
 import catchAsyncError from "../../../middleware/catchAsyncError.js";
 import ErrorHandler from "../../../utils/errorHandler.js";
 export const saveDataArbitrum = catchAsyncError(async (req, res, next) => {
+    const chain = req.params.chain;
+    console.log(chain);
     try {
         const { id, airdropTitle, logoUrl, websiteUrl, facebook, twitter, github, instagram, discord, reddit, youtube, description, } = req.body;
         const newData = new AirDropData({

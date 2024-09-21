@@ -15,6 +15,7 @@ const IAirDropDataSchemaArbitrum: Schema = new Schema<IAirDropData>({
   reddit: String,
   youtube: String,
   description: String,
+  chain: String,
 });
 
 const IAirDropDataArbitrum: Model<IAirDropData> = model<IAirDropData>(

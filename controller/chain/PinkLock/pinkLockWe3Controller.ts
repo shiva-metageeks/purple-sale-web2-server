@@ -7,6 +7,7 @@ export const savePinkLockWeb3Web3DataArbitrum = catchAsyncError(
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { title } = req.body;
+      const chain = req.params.chain;
 
       const newData = new PinkLockWeb3({
         title,
@@ -24,7 +25,8 @@ export const savePinkLockWeb3Web3DataArbitrum = catchAsyncError(
 export const fetchPinkLockWeb3Web3DataAllArbitrum = catchAsyncError(
   async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const allData = await PinkLockWeb3.find();
+      const chain = req.params.chain;
+      const allData = await PinkLockWeb3.find({ chain });
       res.status(200).json(allData);
     } catch (error) {
       console.error("Error fetching data:", error);

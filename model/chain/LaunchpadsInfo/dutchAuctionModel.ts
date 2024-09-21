@@ -14,6 +14,7 @@ const fairLaunchDataSchemaArbitrum: Schema = new Schema<IDutchAuctionData>({
   reddit: String,
   youtube: String,
   description: String,
+  chain: String,
 });
 
 const FairLaunchDataSchemaArbitrum: Model<IDutchAuctionData> =

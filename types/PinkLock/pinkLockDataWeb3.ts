@@ -1,4 +1,5 @@
-import { Document } from 'mongoose';
+import { Document } from "mongoose";
 export interface IPinkLockWeb3 extends Document {
-    title: string;
+  title: string;
+  chain?: string;
 }

@@ -12,6 +12,7 @@ const fairLaunchDataSchemaArbitrum = new Schema({
     reddit: String,
     youtube: String,
     description: String,
+    chain: String,
 });
 const FairLaunchDataSchemaArbitrum = model("dutchAuctionDataArbitrum", fairLaunchDataSchemaArbitrum);
 export default FairLaunchDataSchemaArbitrum;

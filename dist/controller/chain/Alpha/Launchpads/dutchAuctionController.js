@@ -39,6 +39,8 @@ export const fetchDataAllArbitrum = catchAsyncError(async (req, res, next) => {
 export const fetchDataByIdArbitrum = catchAsyncError(async (req, res, next) => {
     try {
         const idParam = req.params.id;
+        const chain = req.params.chain;
+        console.log(chain, idParam);
         const data = await DutchAuctionData.findOne({ id: idParam });
         if (!data) {
             return res.status(404).json({ message: "Data not found" });

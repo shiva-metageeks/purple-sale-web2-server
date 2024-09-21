@@ -12,6 +12,7 @@ const presaleDataSchemaArbitrum = new Schema({
     reddit: String,
     youtube: String,
     description: String,
+    chain: String,
 });
 const PresaleDataArbitrum = model("PresaleDataArbitrum", presaleDataSchemaArbitrum);
 export default PresaleDataArbitrum;

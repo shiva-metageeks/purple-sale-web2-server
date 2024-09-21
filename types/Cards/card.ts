@@ -1,9 +1,10 @@
-import { Document } from 'mongoose';
+import { Document } from "mongoose";
 export interface ICart extends Document {
-    Name: string;
-    Symbol: string;
-    Link: string;
-    WalletAddress: string;
-    imgHref: string;
-    bgLogoUrl?: string;
+  Name: string;
+  Symbol: string;
+  Link: string;
+  WalletAddress: string;
+  imgHref: string;
+  bgLogoUrl?: string;
+  chain?: string;
 }

@@ -5,6 +5,7 @@ import ErrorHandler from "../../../../utils/errorHandler.js";
 
 export const saveDataArbitrum = catchAsyncError(
   async (req: Request, res: Response, next: NextFunction) => {
+    const chain = req.params.chain;
     try {
       const {
         id,
@@ -34,6 +35,7 @@ export const saveDataArbitrum = catchAsyncError(
         reddit,
         youtube,
         description,
+        chain,
       });
 
       await newData.save();
@@ -47,6 +49,7 @@ export const saveDataArbitrum = catchAsyncError(
 
 export const fetchDataAllArbitrum = catchAsyncError(
   async (req: Request, res: Response, next: NextFunction) => {
+    const chain = req.params.chain;
     try {
       const allData = await DutchAuctionData.find();
       res.status(200).json(allData);
@@ -59,8 +62,11 @@ export const fetchDataAllArbitrum = catchAsyncError(
 
 export const fetchDataByIdArbitrum = catchAsyncError(
   async (req: Request, res: Response, next: NextFunction) => {
+    const chain = req.params.chain;
     try {
       const idParam = req.params.id;
+      const chain = req.params.chain;
+      console.log(chain, idParam);
       const data = await DutchAuctionData.findOne({ id: idParam });
       if (!data) {
         return res.status(404).json({ message: "Data not found" });

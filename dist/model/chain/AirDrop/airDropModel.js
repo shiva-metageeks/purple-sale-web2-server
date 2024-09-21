@@ -13,6 +13,7 @@ const IAirDropDataSchemaArbitrum = new Schema({
     reddit: String,
     youtube: String,
     description: String,
+    chain: String,
 });
 const IAirDropDataArbitrum = model("AirDropDataArbitrum", IAirDropDataSchemaArbitrum);
 export default IAirDropDataArbitrum;

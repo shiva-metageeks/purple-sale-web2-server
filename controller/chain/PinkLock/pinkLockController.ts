@@ -7,10 +7,12 @@ export const savePinkLockDataArbitrum = catchAsyncError(
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { title, id } = req.body;
+      const chain = req.params.chain;
 
       const newData = new PinkLock({
         title,
         id,
+        chain,
       });
 
       await newData.save();
@@ -25,6 +27,7 @@ export const savePinkLockDataArbitrum = catchAsyncError(
 export const fetchPinkLockDataAllArbitrum = catchAsyncError(
   async (req: Request, res: Response, next: NextFunction) => {
     try {
+      const chain = req.params.chain;
       const allData = await PinkLock.find();
       res.status(200).json(allData);
     } catch (error) {

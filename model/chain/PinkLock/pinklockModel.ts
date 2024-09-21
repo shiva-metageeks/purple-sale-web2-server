@@ -4,6 +4,7 @@ import { IPinkLock } from "../../../types/PinkLock/pinkLockData.js";
 const pinkLockSchemaArbitrum: Schema = new Schema<IPinkLock>({
   id: Number,
   title: String,
+  chain: String,
 });
 
 const PinkLockArbitrum: Model<IPinkLock> = model<IPinkLock>(

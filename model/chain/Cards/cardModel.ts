@@ -8,6 +8,7 @@ const cardSchemaArbitrum: Schema = new Schema<ICart>({
   WalletAddress: String,
   imgHref: String,
   bgLogoUrl: String,
+  chain: String,
 });
 const CartArbitrum: Model<ICart> = model<ICart>(
   "CartArbitrum",

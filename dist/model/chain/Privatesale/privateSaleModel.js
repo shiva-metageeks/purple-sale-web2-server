@@ -13,6 +13,7 @@ const privateSaleDataSchemaArbitrum = new Schema({
     reddit: String,
     youtube: String,
     description: String,
+    chain: String,
 });
 const PrivateSaleDataArbitrum = model("PrivateSaleDataArbitrum", privateSaleDataSchemaArbitrum);
 export default PrivateSaleDataArbitrum;
